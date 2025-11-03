@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-dynamic-stepper": {
+      "projectType": "library",
+      "root": "projects/ngx-dynamic-stepper",
+      "sourceRoot": "projects/ngx-dynamic-stepper/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-dynamic-stepper/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-dynamic-stepper/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/ngx-dynamic-stepper/tsconfig.spec.json"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<div class="dynamic-stepper-container">
+  <mat-stepper 
+    [linear]="linear"
+    (selectionChange)="onStepChange($event)"
+    #stepper>
+    
+    <mat-step 
+      *ngFor="let step of workflow.steps; let i = index"
+      [label]="step.label"
+      [optional]="step.optional"
+      [completed]="step.completed"
+      [editable]="step.editable !== false">
+      
+      <ng-template matStepLabel>{{ step.label }}</ng-template>
+      
+      <div class="step-content">
+        <ng-container #stepContainer></ng-container>
+        <ng-container *ngIf="navigationService.currentStepIndex === i">
+          <ng-container *ngComponentOutlet="step.component"></ng-container>
+        </ng-container>
+      </div>
+
+      <div class="step-actions">
+        <button 
+          mat-button 
+          *ngIf="!navigationService.isFirstStep()"
+          (click)="onPrevious()">
+          {{ previousButtonLabel }}
+        </button>
+        
+        <button 
+          mat-raised-button 
+          color="primary"
+          (click)="onNext()">
+          {{ navigationService.isLastStep() ? finishButtonLabel : nextButtonLabel }}
+        </button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>

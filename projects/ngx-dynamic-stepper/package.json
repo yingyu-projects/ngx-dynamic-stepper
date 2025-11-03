@@ -1,0 +1,32 @@
+{
+  "name": "ngx-dynamic-stepper",
+  "version": "0.0.1",
+  "description": "A dynamic stepper component library for Angular built on top of Angular Material Stepper",
+  "author": "",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "wizard",
+    "stepper",
+    "dynamic",
+    "material",
+    "forms",
+    "workflow"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-repo/ngx-dynamic-stepper.git"
+  },
+  "peerDependencies": {
+    "@angular/common": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "@angular/forms": "^20.0.0",
+    "@angular/material": "^20.0.0",
+    "@angular/cdk": "^20.0.0",
+    "rxjs": "^7.8.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
