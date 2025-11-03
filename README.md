@@ -86,21 +86,129 @@ export class WizardComponent {
 }
 ```
 
+## Development
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+- Angular CLI (installed globally or via npm scripts)
+
+### Building the Library
+
+To build the library, run:
+
+```bash
+npm run build
+```
+
+This will:
+1. Compile the TypeScript source code
+2. Bundle the library using ng-packagr
+3. Generate distribution files in `dist/ngx-dynamic-stepper/`
+
+The build artifacts include:
+- Compiled JavaScript files (ESM format)
+- TypeScript definition files (`.d.ts`)
+- Package metadata (`package.json`)
+
+### Running the Demo Project
+
+The repository includes a demo application in the `demo/` folder that demonstrates how to use the library.
+
+#### Step 1: Build the Library
+
+First, you need to build the library so the demo can reference it:
+
+```bash
+npm run build
+```
+
+This creates the built library in `dist/ngx-dynamic-stepper/` that the demo project references via TypeScript path mapping.
+
+#### Step 2: Install Dependencies (if not already done)
+
+```bash
+npm install
+```
+
+#### Step 3: Run the Demo
+
+You have several options to run the demo:
+
+**Option A: Build library once and serve demo**
+```bash
+npm run build
+npm run demo
+```
+
+**Option B: Build library in watch mode and serve demo (for development)**
+```bash
+npm run demo:serve
+```
+
+This will:
+- Build the library in watch mode (rebuilds on changes)
+- Serve the demo application on `http://localhost:4200`
+
+**Option C: Build both library and demo**
+```bash
+npm run demo:build
+```
+
+This builds both the library and the demo application.
+
+#### Step 4: View the Demo
+
+Once the demo server is running, open your browser and navigate to:
+
+```
+http://localhost:4200
+```
+
+The demo showcases:
+- ✅ Three-step wizard workflow (User Info → Address → Review)
+- ✅ Form validation using Reactive Forms
+- ✅ Data sharing between steps via `workflowData`
+- ✅ Integration with Angular Material components
+- ✅ Builder/Director pattern for workflow construction
+- ✅ Step lifecycle hooks (`onStepEnter`, `onStepExit`)
+
+### Understanding the Demo Setup
+
+The demo project uses **TypeScript path mapping** to reference the local library:
+
+1. **Path Mapping** (`tsconfig.json`):
+   ```json
+   {
+     "compilerOptions": {
+       "paths": {
+         "ngx-dynamic-stepper": ["./dist/ngx-dynamic-stepper"]
+       }
+     }
+   }
+   ```
+
+2. **Import Statements**: The demo imports from `'ngx-dynamic-stepper'` as if it were an npm package:
+   ```typescript
+   import { DynamicStepperComponent, WizardWorkflow } from 'ngx-dynamic-stepper';
+   ```
+
+3. **Build Requirement**: The library must be built before the demo can run, as the demo references the built output in `dist/ngx-dynamic-stepper/`.
+
 ## Library Development
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
 
-## Development server
+### Available Scripts
 
-To start a local development server, run:
+- `npm run build` - Build the library (defaults to `ngx-dynamic-stepper`)
+- `npm run watch` - Build the library in watch mode with development configuration
+- `npm run demo` - Serve the demo application
+- `npm run demo:build` - Build both library and demo
+- `npm run demo:serve` - Build library in watch mode and serve demo
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
+### Code Scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
@@ -113,16 +221,6 @@ For a complete list of available schematics (such as `components`, `directives`,
 ```bash
 ng generate --help
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
 ## Running unit tests
 

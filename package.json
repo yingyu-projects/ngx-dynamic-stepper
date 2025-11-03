@@ -4,9 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "build": "ng build ngx-dynamic-stepper",
+    "watch": "ng build ngx-dynamic-stepper --watch --configuration development",
+    "test": "ng test",
+    "demo:build": "ng build ngx-dynamic-stepper && ng build demo",
+    "demo:serve": "ng build ngx-dynamic-stepper --watch --configuration development & ng serve demo",
+    "demo": "ng serve demo"
   },
   "prettier": {
     "printWidth": 100,
@@ -22,6 +25,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^20.3.0",
     "@angular/common": "^20.3.0",
     "@angular/compiler": "^20.3.0",
     "@angular/core": "^20.3.0",
@@ -29,7 +33,8 @@
     "@angular/platform-browser": "^20.3.0",
     "@angular/router": "^20.3.0",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "zone.js": "^0.15.0"
   },
   "devDependencies": {
     "@angular/build": "^20.3.8",
