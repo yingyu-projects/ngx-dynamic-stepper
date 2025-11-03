@@ -41,3 +41,19 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# NPM
+.npmrc
+
+# Security
+*.pem
+*.key
+*.cert
+*.p12
+*.pfx

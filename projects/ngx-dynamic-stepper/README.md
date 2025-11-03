@@ -27,7 +27,7 @@ const workflow: WizardWorkflow = {
 
 ## Documentation
 
-For full documentation, examples, and API reference, see the [main README](https://github.com/your-repo/ngx-dynamic-stepper).
+For full documentation, examples, and API reference, see the [main README](https://github.com/yingyu-projects/ngx-dynamic-stepper).
 
 ## Library Development
 
