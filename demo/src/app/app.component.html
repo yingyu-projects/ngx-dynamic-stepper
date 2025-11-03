@@ -1,4 +1,6 @@
-<div>
-  <h1>Demo App</h1>
-  <p>This is a blank demo application.</p>
-</div>
+<ngx-dynamic-stepper
+  [workflow]="workflow"
+  (wizardCompleted)="onWizardCompleted()"
+  (stepChanged)="onStepChanged($event)"
+  (wizardCancelled)="onWizardCancelled()">
+</ngx-dynamic-stepper>
